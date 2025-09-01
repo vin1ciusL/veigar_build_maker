@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Veigar Build Maker</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Veigar Build Maker</h1>
+
+<div class="champion">
+  <img src="https://ddragon.leagueoflegends.com/cdn/15.17.1/img/champion/Veigar.png" alt="Veigar">
+</div>
+
+<!-- Minha Build -->
+<div class="my-build">
+  <h2>Minha Build</h2>
+  <div class="build-slots" id="buildSlots">
+    <div class="slot" data-index="0"></div>
+    <div class="slot" data-index="1"></div>
+    <div class="slot" data-index="2"></div>
+    <div class="slot" data-index="3"></div>
+    <div class="slot" data-index="4"></div>
+    <div class="slot" data-index="5"></div>
+  </div>
+  <!-- Stats totais -->
+  <div id="buildStats" class="build-stats">
+    Health: 0 | Mana: 0 | AP: 0
+  </div>
+</div>
+
+<!-- Filtros -->
+<div class="checkboxes">
+  <label><input type="checkbox" id="life" checked> Vida</label>
+  <label><input type="checkbox" id="ap" checked> AP</label>
+  <label><input type="checkbox" id="mana" checked> Mana</label>
+</div>
+
+<!-- Grid de itens -->
+<div class="grid" id="itemsGrid"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

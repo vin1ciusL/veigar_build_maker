@@ -1,0 +1,40 @@
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ambiente virtual do Python
+venv/
+.env/
+.venv/
+env/
+
+# Arquivos de configuração locais
+*.env
+*.ini
+*.cfg
+*.toml
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testes e builds
+.coverage
+.pytest_cache/
+dist/
+build/
+*.egg-info/
+
+# Notebooks temporários
+.ipynb_checkpoints
