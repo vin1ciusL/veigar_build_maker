@@ -57,29 +57,30 @@ function calcStats() {
     health: 0,
     mana: 0,
     ap: 0,
-    msFlat: 0,
     msPercent: 0,
     armor: 0,
     mr: 0,
   };
 
+  // Soma stats base dos itens
   buildItems.forEach(item => {
     if (!item) return;
-    const s = item.stats;
+    const s = item.stats || {};
     totalStats.health += s.FlatHPPoolMod || 0;
     totalStats.mana += s.FlatMPPoolMod || 0;
     totalStats.ap += s.FlatMagicDamageMod || 0;
-    totalStats.msFlat += s.FlatMovementSpeedMod || 0;
     totalStats.msPercent += s.PercentMovementSpeedMod || 0;
     totalStats.armor += s.FlatArmorMod || 0;
     totalStats.mr += s.FlatSpellBlockMod || 0;
   });
 
-  // Aplica multiplicadores de AP (Rabadon)
+  // Aplica efeitos únicos baseados nos totais
   buildItems.forEach(item => {
-    if (item && item.name === "Rabadon's Deathcap") {
-      totalStats.ap *= 1.3;
-    }
+    if (!item) return;
+    if (item.name === "Riftmaker") totalStats.ap += 0.02 * totalStats.health;
+    if (item.name === "Winter's Approach") totalStats.health += 0.15 * totalStats.mana;
+    if (item.name === "Archangel's Staff") totalStats.ap += 0.01 * totalStats.mana;
+    if (item.name === "Rabadon's Deathcap") totalStats.ap *= 1.3;
   });
 
   return totalStats;
@@ -90,7 +91,7 @@ function calcStats() {
 function updateBuildStats() {
   const s = calcStats();
   const statsDiv = document.getElementById("buildStats");
-  statsDiv.textContent = `Health: ${s.health} | Mana: ${s.mana} | AP: ${Math.round(s.ap)} | MS: ${s.msFlat} | MS%: ${Math.round(s.msPercent*100)}% | Armor: ${s.armor} | MR: ${s.mr}`;
+  statsDiv.textContent = `Health: ${s.health} | Mana: ${s.mana} | AP: ${Math.round(s.ap)} | MS%: ${Math.round(s.msPercent*100)}% | Armor: ${s.armor} | MR: ${s.mr}`;
 }
 
 
