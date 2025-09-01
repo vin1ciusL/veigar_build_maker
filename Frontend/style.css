@@ -18,6 +18,9 @@ h1 {
 }
 .champion img {
   width: 180px;
+  height: auto;
+  border: 2px solid black;
+  border-radius: 5px;
   transition: transform 0.3s;
 }
 .champion img:hover {

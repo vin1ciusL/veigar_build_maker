@@ -5,6 +5,34 @@ let allItems = {};
 const MAX_BUILD = 6;
 let buildItems = Array(MAX_BUILD).fill(null);
 
+document.addEventListener("DOMContentLoaded", () => {
+  const veigarImg = document.querySelector(".champion img");
+  const veigarSkins = [
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Veigar_0.jpg",
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Veigar_1.jpg",
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Veigar_2.jpg",
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Veigar_3.jpg",
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Veigar_4.jpg",
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Veigar_5.jpg",
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Veigar_6.jpg",
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Veigar_7.jpg",
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Veigar_8.jpg",
+    "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Veigar_9.jpg"
+  ];
+  let currentSkin = 0;
+
+  veigarImg.addEventListener("click", () => {
+    currentSkin = (currentSkin + 1) % veigarSkins.length;
+    veigarImg.src = veigarSkins[currentSkin];
+    veigarImg.style.width = "400px";
+    veigarImg.style.height = "auto";
+    veigarImg.style.border = "2px solid black";
+    veigarImg.style.borderRadius = "5px";
+  });
+});
+
+
+
 // Renderiza Minha Build (clean)
 function renderBuild() {
   const slots = document.getElementById("buildSlots").children;
